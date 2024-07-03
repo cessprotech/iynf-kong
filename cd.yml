@@ -1,0 +1,140 @@
+name: iynfluencer
+services:
+  creator:
+    depends_on:
+      kong:
+        condition: service_started
+    environment:
+      APP_DESCRIPTION: WencesJ
+      APP_NAME: iynfluencer-creator
+      APP_VERSION: 1.0.0
+      AUTH_TYPE: jwt
+      AWS_ACCESS_KEY_ID: any
+      AWS_ACCESS_KEY_SECRET: any
+      AWS_BUCKET_NAME: iynfluencer
+      AWS_REGION: any
+      DATABASE: database
+      DB_CLOUD: mongodb+srv://wences:wences123@cluster0.70nbx.mongodb.net/iynfluencer?retryWrites=true&w=majority
+      DB_LOCAL: mongodb://host.docker.internal:27018/iynfluencer?replicaSet=rs-wences
+      DB_NAME: name
+      DB_PASSWORD: password
+      DOCS_ROUTE: docs
+      EXPRESS_COOKIE_MAX_AGE: "18000000"
+      EXPRESS_SESSION_NAME: nestauth
+      EXPRESS_SESSION_SECRET: kjjkjjkkjkk-tyadfaf112ad
+      GOOGLE_APP_ID: any
+      GOOGLE_APP_SECRET: any
+      MONGO_STORE_SECRET: asdfsaasfasfaf-adf212adads
+      MONGO_STORE_TTL: "3600"
+      NODE_ENV: development
+      REDIS_CLOUD: redis://default:3s1B4hkY2Jh7AB7J7nprevpC7qmRfgvm@redis-13696.c81.us-east-1-2.ec2.cloud.redislabs.com:13696
+      RMQ_CREATOR_QUEUE: creator
+      RMQ_INFLUENCER_QUEUE: influencer
+      RMQ_NOTIFICATION_QUEUE: notification
+      RMQ_URI: amqps://zucydyjh:jV0DU7EzuwagrRR65I0XWOELkBs32-oc@moose.rmq.cloudamqp.com/zucydyjh?heartbeat=60
+      RMQ_USER_QUEUE: user
+      SENTRY_DSN: any
+    image: 305060840227.dkr.ecr.us-east-1.amazonaws.com/iynfluencer_creator:latest
+    networks:
+      default: null
+  influencer:
+    depends_on:
+      kong:
+        condition: service_started
+    environment:
+      APP_DESCRIPTION: WencesJ
+      APP_NAME: wenceslas-portfolio
+      APP_VERSION: 1.0.0
+      AUTH_TYPE: jwt
+      AWS_ACCESS_KEY_ID: any
+      AWS_ACCESS_KEY_SECRET: any
+      AWS_BUCKET_NAME: iynfluencer
+      AWS_REGION: any
+      DATABASE: database
+      DB_CLOUD: mongodb+srv://wences:wences123@cluster0.70nbx.mongodb.net/iynfluencer?retryWrites=true&w=majority
+      DB_LOCAL: mongodb+srv://wences:wences123@cluster0.70nbx.mongodb.net/iynfluencer?retryWrites=true&w=majority
+      DB_NAME: name
+      DB_PASSWORD: password
+      DOCS_ROUTE: docs
+      EXPRESS_COOKIE_MAX_AGE: "18000000"
+      EXPRESS_SESSION_NAME: nestauth
+      EXPRESS_SESSION_SECRET: kjjkjjkkjkk-tyadfaf112ad
+      GOOGLE_APP_ID: any
+      GOOGLE_APP_SECRET: any
+      MONGO_STORE_SECRET: asdfsaasfasfaf-adf212adads
+      MONGO_STORE_TTL: "3600"
+      NODE_ENV: development
+      REDIS_CLOUD: redis://default:3s1B4hkY2Jh7AB7J7nprevpC7qmRfgvm@redis-13696.c81.us-east-1-2.ec2.cloud.redislabs.com:13696
+      RMQ_CREATOR_QUEUE: creator
+      RMQ_INFLUENCER_QUEUE: influencer
+      RMQ_NOTIFICATION_QUEUE: notification
+      RMQ_URI: amqps://zucydyjh:jV0DU7EzuwagrRR65I0XWOELkBs32-oc@moose.rmq.cloudamqp.com/zucydyjh?heartbeat=60
+      RMQ_USER_QUEUE: user
+      SENTRY_DSN: any
+    image: 305060840227.dkr.ecr.us-east-1.amazonaws.com/iynfluencer_influencer:latest
+    networks:
+      default: null
+  kong:
+    command:
+    - kong
+    - start
+    environment:
+      KONG_ADMIN_LISTEN: 0.0.0.0:9000
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /usr/local/kong/declarative/kong.yml
+      KONG_PROXY_LISTEN: 0.0.0.0:8000
+      KONG_PROXY_LISTEN_SSL: 0.0.0.0:8443
+    image: 305060840227.dkr.ecr.us-east-1.amazonaws.com/iynfluencer_kong:latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 8000
+      published: "8000"
+      protocol: tcp
+    - mode: ingress
+      target: 9000
+      published: "9000"
+      protocol: tcp
+  user:
+    depends_on:
+      kong:
+        condition: service_started
+    environment:
+      APP_DESCRIPTION: iynfluencer
+      APP_NAME: iynfluencer
+      APP_VERSION: 1.0.0
+      AUTH_TYPE: jwt
+      AWS_ACCESS_KEY_ID: AKIAUOBYLAMRZ2JE5TYB
+      AWS_ACCESS_KEY_SECRET: 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
+      AWS_BUCKET_NAME: iynfluencer
+      AWS_REGION: us-east-1
+      DATABASE: database
+      DB_CLOUD: mongodb+srv://wences:wences123@cluster0.70nbx.mongodb.net/iynfluencer?retryWrites=true&w=majority
+      DB_LOCAL: mongodb+srv://wences:wences123@cluster0.70nbx.mongodb.net/iynfluencer?retryWrites=true&w=majority
+      DB_NAME: name
+      DB_PASSWORD: password
+      DOCS_ROUTE: docs
+      EXPRESS_COOKIE_MAX_AGE: "18000000"
+      EXPRESS_SESSION_NAME: nestauth
+      EXPRESS_SESSION_SECRET: kjjkjjkkjkk-tyadfaf112ad
+      GOOGLE_APP_ID: any
+      GOOGLE_APP_SECRET: any
+      JWT_EXPIRES: 2h
+      JWT_SECRET: GOD_IS_THE_GREATEST.TILL.INFIINTY@00000!@Wenceslas.wealthy
+      MONGO_STORE_SECRET: asdfsaasfasfaf-adf212adads
+      MONGO_STORE_TTL: "3600"
+      NODE_ENV: development
+      REDIS_CLOUD: redis://default:3s1B4hkY2Jh7AB7J7nprevpC7qmRfgvm@redis-13696.c81.us-east-1-2.ec2.cloud.redislabs.com:13696
+      RMQ_CREATOR_QUEUE: creator
+      RMQ_INFLUENCER_QUEUE: influencer
+      RMQ_MAILER_QUEUE: mail
+      RMQ_NOTIFICATION_QUEUE: notification
+      RMQ_URI: amqps://zucydyjh:jV0DU7EzuwagrRR65I0XWOELkBs32-oc@moose.rmq.cloudamqp.com/zucydyjh?heartbeat=60
+      RMQ_USER_QUEUE: user
+    image: 305060840227.dkr.ecr.us-east-1.amazonaws.com/iynfluencer_user:latest
+    networks:
+      default: null
+networks:
+  default:
+    name: iynfluencer_default

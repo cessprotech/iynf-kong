@@ -1,0 +1,64 @@
+_format_version: "2.1"
+_transform: true
+
+services:
+  - name: user-service
+    # url: http://user:5040/api/v1/users
+    url: https://iynf-user-cpgbh.ondigitalocean.app/api/v1/users
+    routes:
+      - name: user-route
+        paths:
+          - /api/v1/users
+
+  - name: creator-service
+    # url: http://creator:5041/api/v1/creators
+    url: https://iyfn-creator-7ouwc.ondigitalocean.app/api/v1/creators
+    routes:
+      - name: creator-route
+        paths:
+          - /api/v1/creators
+
+  - name: influencer-service
+    # url: http://influencer:5042/api/v1/influencers
+    url: https://iynf-influencer-ffjnd.ondigitalocean.app/api/v1/influencers
+    routes:
+      - name: influencer-route
+        paths:
+          - /api/v1/influencers
+
+  - name: payment-service
+    url: https://iynf-payment-4onmn.ondigitalocean.app/api/v1/payments
+    routes:
+      - name: payment-route
+        paths:
+          - /api/v1/payments
+
+  - name: chat-service
+    # url: http://chat:5046/api/v1/chats
+    url: https://iynf-chat-hgkkb.ondigitalocean.app/api/v1/chats
+    routes:
+      - name: chat-route
+        paths:
+          - /api/v1/chats
+
+  - name: chat-service-socket
+    # url: http://chat:5046/chat-socket
+    url: https://iynf-chat-hgkkb.ondigitalocean.app/chat-socket
+    routes:
+      - name: chat-socket-route
+        paths:
+          - /api/v1/chat-socket
+
+  # - name: payment-service
+  #   url: http://payment:5043/api/v1/payments
+  #   routes:
+  #     - name: payment-route
+  #       paths:
+  #         - /api/v1/payments
+
+  # - name: notification-service
+  #   url: http://notification:5044/api/v1/notifications
+  #   routes:
+  #     - name: notification-route
+  #       paths:
+  #         - /api/v1/notifications

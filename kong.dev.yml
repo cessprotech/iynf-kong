@@ -1,0 +1,50 @@
+_format_version: "2.1"
+
+services:
+  - name: user-service
+    url: http://host.docker.internal:5040/api/v1/users
+    routes:
+      - name: users-route
+        paths:
+          - /api/v1/users
+
+  - name: creator-service
+    url: http://host.docker.internal:5041/api/v1/creators
+    routes:
+      - name: creator-service
+        paths:
+          - /api/v1/creators
+
+  - name: influencer-service
+    url: http://host.docker.internal:5042/api/v1/influencers
+    routes:
+      - name: influencer-route
+        paths:
+          - /api/v1/influencers
+
+  - name: chat-service
+    url: http://host.docker.internal:5046/api/v1/chats
+    routes:
+      - name: chat-route
+        paths:
+          - /api/v1/chats
+
+  # - name: payment-service
+  #   url: http://host.docker.internal:5043/api/v1/payments
+  #   routes:
+  #     - name: payment-route
+  #       paths:
+  #         - /api/v1/payments
+
+  # - name: notification-service
+  #   url: http://host.docker.internal:5044/api/v1/notifications
+  #   routes:
+  #     - name: notification-route
+  #       paths:
+  #         - /api/v1/notifications
+  # - name: hello-service
+  #   url: http://host.docker.internal:8002
+  #   routes:
+  #     - name: hello-route
+  #       paths:
+  #         - /hello
