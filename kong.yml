@@ -12,7 +12,7 @@ services:
 
   - name: creator-service
     # url: http://creator:5041/api/v1/creators
-    url: https://iyfn-creator-7ouwc.ondigitalocean.app/api/v1/creators
+    url: https://iynf-creator-ftkpe.ondigitalocean.app/api/v1/creators
     routes:
       - name: creator-route
         paths:
@@ -20,14 +20,14 @@ services:
 
   - name: influencer-service
     # url: http://influencer:5042/api/v1/influencers
-    url: https://iynf-influencer-ffjnd.ondigitalocean.app/api/v1/influencers
+    url: https://iynf-influencer-p9j46.ondigitalocean.app/api/v1/influencers
     routes:
       - name: influencer-route
         paths:
           - /api/v1/influencers
 
   - name: payment-service
-    url: https://iynf-payment-4onmn.ondigitalocean.app/api/v1/payments
+    url: https://iynf-payment-l4xle.ondigitalocean.app/api/v1/payments
     routes:
       - name: payment-route
         paths:
@@ -35,7 +35,7 @@ services:
 
   - name: chat-service
     # url: http://chat:5046/api/v1/chats
-    url: https://iynf-chat-hgkkb.ondigitalocean.app/api/v1/chats
+    url: https://iynf-chat-afosd.ondigitalocean.app/api/v1/chats
     routes:
       - name: chat-route
         paths:
@@ -43,7 +43,7 @@ services:
 
   - name: chat-service-socket
     # url: http://chat:5046/chat-socket
-    url: https://iynf-chat-hgkkb.ondigitalocean.app/chat-socket
+    url: https://iynf-chat-afosd.ondigitalocean.app/chat-socket
     routes:
       - name: chat-socket-route
         paths:
