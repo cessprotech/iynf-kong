@@ -4,7 +4,7 @@ _transform: true
 services:
   - name: user-service
     # url: http://user:5040/api/v1/users
-    url: https://iynf-user-cpgbh.ondigitalocean.app/api/v1/users
+    url: https://iynf-user-m5k4y.ondigitalocean.app/api/v1/users
     routes:
       - name: user-route
         paths:
